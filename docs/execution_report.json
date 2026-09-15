@@ -1,0 +1,31 @@
+{
+  "execution": "fresh local IPython process, empty working directory, unchanged notebook cells including setup",
+  "capture": "actual IPython stdout, display MIME bundles, and matplotlib inline figures",
+  "actual_google_colab_session": false,
+  "jupyter_socket_kernel": false,
+  "host_limitation": "TCP and IPC socket binding are unavailable; no socket server was used",
+  "code_cells": 16,
+  "execution_counts": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "error_outputs": 0,
+  "elapsed_seconds": 19.842404537999982,
+  "all_code_cells_executed": true,
+  "output_blocks": 46,
+  "captured_figures": 10
+}

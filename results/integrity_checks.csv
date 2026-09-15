@@ -1,0 +1,10 @@
+check,passed
+"Dataset checksum, schema, dates and values validated",True
+Five comparison folds for every model,True
+Six later calibration origins for every model,True
+No final-test observations in calibration predictions,True
+At least one classical and one ML model evaluated,True
+Both scale-dependent and scale-free metrics reported,True
+Interval coverage and width reported for every model,True
+Future forecast begins after all observed dates,True
+Future forecast contains exactly 28 dates,True

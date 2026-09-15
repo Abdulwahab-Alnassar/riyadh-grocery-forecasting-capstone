@@ -1,0 +1,4 @@
+series,ADF_statistic,p_value,selected_lags,n_obs,critical_5pct,deterministic_terms,reject_unit_root_5pct
+Original,-2.705683358566838,0.23373034846723845,20,739,-3.4164476595648,ct,False
+First difference,-8.746996160311225,2.904608862600294e-14,20,738,-2.86546426916434,c,True
+Seven-day difference,-8.636868010980201,5.56032256606585e-14,20,732,-2.8654965012008677,c,True

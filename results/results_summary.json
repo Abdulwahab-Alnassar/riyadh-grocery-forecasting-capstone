@@ -1,0 +1,295 @@
+{
+  "selected_model": "Seasonal Naive",
+  "data_audit": [
+    {
+      "observations": 1096,
+      "start": "2023-01-01",
+      "end": "2025-12-31",
+      "missing_values": 0,
+      "duplicate_dates": 0,
+      "zero_days": 0,
+      "negative_days": 0,
+      "frequency": "daily",
+      "imputation": "none",
+      "data_type": "synthetic"
+    }
+  ],
+  "partitions": [
+    {
+      "stage": "Initial training / diagnostics",
+      "first_day": "2023-01-01",
+      "last_day": "2025-01-29",
+      "n_days": 760
+    },
+    {
+      "stage": "Model-selection validation",
+      "first_day": "2025-01-30",
+      "last_day": "2025-06-18",
+      "n_days": 140
+    },
+    {
+      "stage": "Interval calibration",
+      "first_day": "2025-06-19",
+      "last_day": "2025-12-03",
+      "n_days": 168
+    },
+    {
+      "stage": "Final test",
+      "first_day": "2025-12-04",
+      "last_day": "2025-12-31",
+      "n_days": 28
+    }
+  ],
+  "eda": {
+    "n": 760,
+    "minimum": 397.0,
+    "maximum": 1855.0,
+    "mean": 655.1960526315789,
+    "seasonal_strength_weekly": 0.501343366092307,
+    "acf_lag_7": 0.6613673091157339,
+    "acf_lag_28": 0.46844116122016594,
+    "acf_lag_365": 0.19078264408698375
+  },
+  "adf": [
+    {
+      "series": "Original",
+      "ADF_statistic": -2.705683358566838,
+      "p_value": 0.23373034846723845,
+      "selected_lags": 20,
+      "n_obs": 739,
+      "critical_5pct": -3.4164476595648,
+      "deterministic_terms": "ct",
+      "reject_unit_root_5pct": false
+    },
+    {
+      "series": "First difference",
+      "ADF_statistic": -8.746996160311225,
+      "p_value": 2.904608862600294e-14,
+      "selected_lags": 20,
+      "n_obs": 738,
+      "critical_5pct": -2.86546426916434,
+      "deterministic_terms": "c",
+      "reject_unit_root_5pct": true
+    },
+    {
+      "series": "Seven-day difference",
+      "ADF_statistic": -8.636868010980201,
+      "p_value": 5.56032256606585e-14,
+      "selected_lags": 20,
+      "n_obs": 732,
+      "critical_5pct": -2.8654965012008677,
+      "deterministic_terms": "c",
+      "reject_unit_root_5pct": true
+    }
+  ],
+  "ljung_box": [
+    {
+      "lag": 14,
+      "lb_stat": 46.87246549958876,
+      "lb_pvalue": 2.01722490349076e-05
+    },
+    {
+      "lag": 28,
+      "lb_stat": 60.31362426540279,
+      "lb_pvalue": 0.00037133665561045633
+    }
+  ],
+  "hw_parameters": {
+    "smoothing_level": 0.7318933454703758,
+    "smoothing_trend": 0.0,
+    "smoothing_seasonal": 0.0,
+    "damping_trend": 0.8
+  },
+  "selection": [
+    {
+      "model": "Seasonal Naive",
+      "MAE": 216.12857142857143,
+      "RMSE": 365.0681541066779,
+      "WAPE_pct": 26.130436284500327,
+      "mean_fold_MASE_s7": 2.348016346834546,
+      "mean_fit_seconds": 1.750799947330961e-06,
+      "mean_predict_seconds": 0.0005073293999885209,
+      "worst_fold_WAPE_pct": 72.95611494764981,
+      "WAPE_improvement_vs_baseline_pct": 0.0
+    },
+    {
+      "model": "LightGBM",
+      "MAE": 231.8381510422885,
+      "RMSE": 367.5374560995615,
+      "WAPE_pct": 28.029760221355133,
+      "mean_fold_MASE_s7": 2.5103954176625107,
+      "mean_fit_seconds": 0.2846589557999778,
+      "mean_predict_seconds": 0.2504196559999855,
+      "worst_fold_WAPE_pct": 73.95259510127578,
+      "WAPE_improvement_vs_baseline_pct": -7.26862696120163
+    },
+    {
+      "model": "Holt-Winters",
+      "MAE": 232.4742798518342,
+      "RMSE": 392.92717173960705,
+      "WAPE_pct": 28.10666964252374,
+      "mean_fold_MASE_s7": 2.522767079173163,
+      "mean_fit_seconds": 0.04204326819990456,
+      "mean_predict_seconds": 0.011170714599984422,
+      "worst_fold_WAPE_pct": 81.36824164101216,
+      "WAPE_improvement_vs_baseline_pct": -7.562955843931496
+    }
+  ],
+  "final_test": [
+    {
+      "model": "Seasonal Naive",
+      "selected_before_test": true,
+      "MAE": 57.75,
+      "RMSE": 68.42383669870777,
+      "WAPE_pct": 9.210001708720169,
+      "MASE_s7": 0.648821436513231,
+      "nominal_coverage_pct": 90.0,
+      "coverage_pct": 96.42857142857143,
+      "mean_interval_width": 344.0,
+      "fit_seconds": 1.621000137674855e-06,
+      "predict_seconds": 0.0007321390000925021,
+      "warning_count": 0
+    },
+    {
+      "model": "Holt-Winters",
+      "selected_before_test": false,
+      "MAE": 54.27203522181124,
+      "RMSE": 63.014555415669875,
+      "WAPE_pct": 8.65533397625286,
+      "MASE_s7": 0.6097464909976145,
+      "nominal_coverage_pct": 90.0,
+      "coverage_pct": 92.85714285714286,
+      "mean_interval_width": 387.1310269145614,
+      "fit_seconds": 0.03716934500016578,
+      "predict_seconds": 0.012450725999997303,
+      "warning_count": 0
+    },
+    {
+      "model": "LightGBM",
+      "selected_before_test": false,
+      "MAE": 43.33037696792332,
+      "RMSE": 51.35414425472654,
+      "WAPE_pct": 6.9103523102002224,
+      "MASE_s7": 0.4868169251772784,
+      "nominal_coverage_pct": 90.0,
+      "coverage_pct": 92.85714285714286,
+      "mean_interval_width": 351.9325476423282,
+      "fit_seconds": 0.2477542239998911,
+      "predict_seconds": 0.2454846919999909,
+      "warning_count": 0
+    }
+  ],
+  "radii": [
+    {
+      "model": "Seasonal Naive",
+      "band": 0,
+      "horizon_days": "1-7",
+      "n_scores": 42,
+      "rank": 39,
+      "raw_radius": 125.0,
+      "used_radius": 125.0
+    },
+    {
+      "model": "Seasonal Naive",
+      "band": 1,
+      "horizon_days": "8-14",
+      "n_scores": 42,
+      "rank": 39,
+      "raw_radius": 105.0,
+      "used_radius": 125.0
+    },
+    {
+      "model": "Seasonal Naive",
+      "band": 2,
+      "horizon_days": "15-21",
+      "n_scores": 42,
+      "rank": 39,
+      "raw_radius": 219.0,
+      "used_radius": 219.0
+    },
+    {
+      "model": "Seasonal Naive",
+      "band": 3,
+      "horizon_days": "22-28",
+      "n_scores": 42,
+      "rank": 39,
+      "raw_radius": 124.0,
+      "used_radius": 219.0
+    },
+    {
+      "model": "Holt-Winters",
+      "band": 0,
+      "horizon_days": "1-7",
+      "n_scores": 42,
+      "rank": 39,
+      "raw_radius": 102.11248600976523,
+      "used_radius": 102.11248600976523
+    },
+    {
+      "model": "Holt-Winters",
+      "band": 1,
+      "horizon_days": "8-14",
+      "n_scores": 42,
+      "rank": 39,
+      "raw_radius": 87.99013838948395,
+      "used_radius": 102.11248600976523
+    },
+    {
+      "model": "Holt-Winters",
+      "band": 2,
+      "horizon_days": "15-21",
+      "n_scores": 42,
+      "rank": 39,
+      "raw_radius": 285.01854090479617,
+      "used_radius": 285.01854090479617
+    },
+    {
+      "model": "Holt-Winters",
+      "band": 3,
+      "horizon_days": "22-28",
+      "n_scores": 42,
+      "rank": 39,
+      "raw_radius": 115.63686111511913,
+      "used_radius": 285.01854090479617
+    },
+    {
+      "model": "LightGBM",
+      "band": 0,
+      "horizon_days": "1-7",
+      "n_scores": 42,
+      "rank": 39,
+      "raw_radius": 103.02988549393342,
+      "used_radius": 103.02988549393342
+    },
+    {
+      "model": "LightGBM",
+      "band": 1,
+      "horizon_days": "8-14",
+      "n_scores": 42,
+      "rank": 39,
+      "raw_radius": 90.5337718520143,
+      "used_radius": 103.02988549393342
+    },
+    {
+      "model": "LightGBM",
+      "band": 2,
+      "horizon_days": "15-21",
+      "n_scores": 42,
+      "rank": 39,
+      "raw_radius": 248.90266214839482,
+      "used_radius": 248.90266214839482
+    },
+    {
+      "model": "LightGBM",
+      "band": 3,
+      "horizon_days": "22-28",
+      "n_scores": 42,
+      "rank": 39,
+      "raw_radius": 202.48052557469555,
+      "used_radius": 248.90266214839482
+    }
+  ],
+  "future_start": "2026-01-01",
+  "future_end": "2026-01-28",
+  "recursion_checks_passed": true
+}

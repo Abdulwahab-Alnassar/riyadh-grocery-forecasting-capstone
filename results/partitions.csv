@@ -1,0 +1,5 @@
+stage,first_day,last_day,n_days
+Initial training / diagnostics,2023-01-01,2025-01-29,760
+Model-selection validation,2025-01-30,2025-06-18,140
+Interval calibration,2025-06-19,2025-12-03,168
+Final test,2025-12-04,2025-12-31,28
